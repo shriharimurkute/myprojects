@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Management - Transactions</title>
+    <style>
+        /* style.css */
+
+/* Basic styling */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color:silver;
+    margin: 0;
+    padding: 0;
+}
+/* dropdown */
+
+dropdown{
+    position:relative;
+    display:inline-block;
+}
+.dropbtn{
+    background-color: white;
+    border:2px solid black;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.dropd-ctx{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+.dropd-ctx a{
+    color:black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropd-ctx a:hover{
+    background: color #f1f1f1;;
+
+}
+.dropdown:hover .dropd-ctx{
+    display: block;
+
+}
+.dropdown:hover .dropbtn{
+    background-color: wheat;
+
+}
+/*end*/
+.bl{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   
+}
+.container1 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+button.transaction:hover{
+    background-color: #17a6e3;
+}
+/* Positive and negative amounts */
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+} 
+th { cursor: pointer; }
+        .pagination { display: flex; justify-content: center; margin-top: 20px; }
+        .pagination button { margin: 0 5px; }
+    </style>
+</head>
+<body>
+<br>
+<div id="drop" class="dropdown">
+    <button class="dropbtn">Menu</button>
+    <div class="dropd-ctx">
+        <a href="/code_files/index.html"> Home</a>
+        <a href="/code_files/my_Activities.html">Activities</a>
+        <a href="/code_files/transactions_managment.html"> Transactions</a>
+        <a href="/allTrackers/Trackers.html"> Trackers</a>
+    </div>
+</div>
+<br>
+<div class="bl">
+    <form id="transaction-form">
+        <input type="text" id="amount" placeholder="Amount">
+        <input type="text" id="description" placeholder="Description">
+        <input type="datetime-local" id="datetime" placeholder="datetime">
+        <button class="transaction" type="submit">Add Transaction</button>
+    </form>
+
+    <ul id="transaction-list">
+        <!-- Existing transaction history items -->
+    </ul>
+</div>
+<br>
+<div class="container1">
+    <h1>Transaction History</h1>
+    <input type="text" id="search" placeholder="Search by date or description">
+    <table>
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Date</th>
+                <th>Description</th>
+                <th onclick="sortTable(2)">Amount</th>
+                <th>Balance</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="transaction-table-body">
+            <!-- Transactions will be dynamically added here -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">Total Income:</td>
+                <td id="total-income" class="positive"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2">Total Expenses:</td>
+                <td id="total-expenses" class="negative"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="pagination" id="pagination">
+        <!-- Pagination buttons will be dynamically added here -->
+    </div>
+</div>
+<br>
+<button style=" padding: 5px 10px; margin: 5px;  border-radius: 5px; cursor: pointer; "> <li class="navbar-item"><a class="navbar-link" href="/code_files/tm2.html">next</a></li></button>
+<br>
+<script>
+    let editRow = null;
+    let transactions = [];
+    const rowsPerPage = 15;
+    let currentPage = 1;
+
+    document.getElementById('transaction-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const amount = document.getElementById('amount').value;
+        const description = document.getElementById('description').value;
+        const datetime = document.getElementById('datetime').value;
+
+        if (amount && description && datetime) {
+            const transaction = {
+                date: new Date(datetime).toLocaleDateString(),
+                description: description,
+                amount: parseFloat(amount)
+            };
+
+            if (editRow !== null) {
+                transactions[editRow] = transaction;
+                editRow = null;
+            } else {
+                transactions.push(transaction);
+            }
+
+            renderTable();
+            renderPagination();
+            updateSummary();
+
+            // Clear the form fields
+            document.getElementById('amount').value = '';
+            document.getElementById('description').value = '';
+            document.getElementById('datetime').value = '';
+        }
+    });
+
+    function renderTable(filteredTransactions = transactions) {
+        const tableBody = document.getElementById('transaction-table-body');
+        tableBody.innerHTML = '';
+
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const paginatedTransactions = filteredTransactions.slice(start, end);
+
+        let runningBalance = 0;
+
+        paginatedTransactions.forEach((transaction, index) => {
+            const newRow = document.createElement('tr');
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = transaction.date;
+            newRow.appendChild(dateCell);
+
+            const descriptionCell = document.createElement('td');
+            descriptionCell.textContent = transaction.description;
+            newRow.appendChild(descriptionCell);
+
+            const amountCell = document.createElement('td');
+            amountCell.textContent = transaction.amount;
+            amountCell.className = transaction.amount < 0 ? 'negative' : 'positive';
+            newRow.appendChild(amountCell);
+
+            runningBalance += transaction.amount;
+            const balanceCell = document.createElement('td');
+            balanceCell.textContent = runningBalance.toFixed(2);
+            balanceCell.className = runningBalance < 0 ? 'negative' : 'positive';
+            newRow.appendChild(balanceCell);
+
+            const actionCell = document.createElement('td');
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.className = 'btn btn-sm btn-warning';
+            editButton.addEventListener('click', function() {
+                document.getElementById('amount').value = transaction.amount;
+                document.getElementById('description').value = transaction.description;
+                document.getElementById('datetime').value = new Date(transaction.date).toISOString().slice(0, 16);
+                editRow = start + index;
+            });
+            actionCell.appendChild(editButton);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.className = 'btn btn-sm btn-danger';
+            deleteButton.addEventListener('click', function() {
+                transactions.splice(start + index, 1);
+                renderTable();
+                renderPagination();
+                updateSummary();
+            });
+            actionCell.appendChild(deleteButton);
+
+            newRow.appendChild(actionCell);
+            tableBody.appendChild(newRow);
+        });
+    }
+
+    function renderPagination() {
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = '';
+
+        const totalPages = Math.ceil(transactions.length / rowsPerPage);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.textContent = i;
+            button.className = i === currentPage ? 'btn btn-primary' : 'btn btn-secondary';
+            button.addEventListener('click', function() {
+                currentPage = i;
+                renderTable();
+            });
+            pagination.appendChild(button);
+        }
+    }
+
+    function updateSummary() {
+        const totalIncome = transactions.reduce((sum, transaction) => {
+            return sum + (transaction.amount > 0 ? transaction.amount : 0);
+        }, 0);
+
+        const totalExpenses = transactions.reduce((sum, transaction) => {
+            return sum + (transaction.amount < 0 ? transaction.amount : 0);
+        }, 0);
+
+        document.getElementById('total-income').textContent = `+₹${totalIncome.toFixed(2)}`;
+        document.getElementById('total-expenses').textContent = `-₹${Math.abs(totalExpenses).toFixed(2)}`;
+    }
+
+    document.getElementById('search').addEventListener('input', function(event) {
+        const searchValue = event.target.value.toLowerCase();
+        const filteredTransactions = transactions.filter(transaction => {
+            return transaction.date.toLowerCase().includes(searchValue) || transaction.description.toLowerCase().includes(searchValue);
+        });
+
+        currentPage = 1; // Reset to the first page when searching
+        renderTable(filteredTransactions);
+        renderPagination(filteredTransactions);
+    });
+
+    function sortTable(columnIndex) {
+        transactions.sort((a, b) => {
+            if (columnIndex === 0) {
+                return new Date(a.date) - new Date(b.date);
+            } else if (columnIndex === 2) {
+                return a.amount - b.amount;
+            }
+        });
+
+        renderTable();
+    }
+</script>
+</body>
+</html>

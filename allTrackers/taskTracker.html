@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #4e4d4d;
+    margin: 0;
+    padding: 0;
+    background-image: url("/finance1.jpg");
+    background-size:auto;
+}
+/*Task tracker */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+
+/*habbit intake */
+.container1 {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+/* water intack */
+.container2 {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #71a5ed;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.total-intake {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Tracker</h1>
+        <form id="task-form">
+            <input type="text" id="task-name" placeholder="Task Name" required />
+            <button type="submit">Add Task</button>
+        </form>
+        <ul id="task-list"></ul>
+    </div>
+    <br>
+    <div class="container1">
+        <h1>Habit Tracker</h1>
+        <form id="habit-form">
+            <input type="text" id="habit-name" placeholder="Habit Name" required />
+            <button type="submit">Add Habit</button>
+        </form>
+        <ul id="habit-list"></ul>
+    </div>
+
+    <br>
+    <div class="container2">
+        <h1>Water Intake Tracker</h1>
+        <form id="water-form">
+            <input type="number" id="water-amount" placeholder="Amount (ml)" required />
+            <button type="submit">Add Intake</button>
+        </form>
+        <ul id="water-list"></ul>
+        <div class="total-intake">
+            <strong>Total Intake:</strong> <span id="total-intake">0</span> ml
+        </div>
+    </div>
+    <br>
+    <!---->
+
+    <br>
+    <script>
+        /* task tracker */
+        let tasks = [];
+
+document.getElementById('task-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const taskName = document.getElementById('task-name').value;
+
+    if (taskName) {
+        addTask(taskName);
+        document.getElementById('task-form').reset();
+    }
+});
+
+function addTask(name) {
+    const now = new Date();
+    const dateTime = now.toLocaleString();
+
+    const task = {
+        name: name,
+        dateTime: dateTime,
+        timestamp: now.getTime(),
+        completed: false
+    };
+
+    tasks.push(task);
+    sortTasks();
+    displayTasks();
+}
+
+function toggleTaskCompletion(timestamp) {
+    tasks = tasks.map(task => {
+        if (task.timestamp === timestamp) {
+            task.completed = !task.completed;
+        }
+        return task;
+    });
+    sortTasks();
+    displayTasks();
+}
+
+function removeTask(button, timestamp) {
+    tasks = tasks.filter(task => task.timestamp !== timestamp);
+    sortTasks();
+    displayTasks();
+}
+
+function sortTasks() {
+    tasks.sort((a, b) => b.timestamp - a.timestamp);
+}
+
+function displayTasks() {
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = '';
+
+    tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTaskCompletion(${task.timestamp})">
+            ${task.name} - <small>${task.dateTime}</small>
+            <button onclick="removeTask(this, ${task.timestamp})">Remove</button>
+        `;
+        li.style.textDecoration = task.completed ? 'line-through' : 'none';
+        taskList.appendChild(li);
+    });
+}
+
+/* habbit tracker */
+let habits = [];
+
+document.getElementById('habit-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const habitName = document.getElementById('habit-name').value;
+
+    if (habitName) {
+        addHabit(habitName);
+        document.getElementById('habit-form').reset();
+    }
+});
+
+function addHabit(name) {
+    const now = new Date();
+    const dateTime = now.toLocaleString();
+
+    const habit = {
+        name: name,
+        dateTime: dateTime,
+        timestamp: now.getTime()
+    };
+
+    habits.push(habit);
+    sortHabits();
+    displayHabits();
+}
+
+function removeHabit(button, timestamp) {
+    habits = habits.filter(habit => habit.timestamp !== timestamp);
+    sortHabits();
+    displayHabits();
+}
+
+function sortHabits() {
+    habits.sort((a, b) => b.timestamp - a.timestamp);
+}
+
+function displayHabits() {
+    const habitList = document.getElementById('habit-list');
+    habitList.innerHTML = '';
+
+    habits.forEach(habit => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${habit.name} - <small>${habit.dateTime}</small>
+            <button onclick="removeHabit(this, ${habit.timestamp})">Remove</button>
+        `;
+        habitList.appendChild(li);
+    });
+}
+
+/*water intack tracker */
+/*water intake */
+let entries = [];
+
+document.getElementById('water-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const waterAmount = parseFloat(document.getElementById('water-amount').value);
+
+    if (!isNaN(waterAmount)) {
+        addWaterIntake(waterAmount);
+        document.getElementById('water-form').reset();
+    }
+});
+
+function addWaterIntake(amount) {
+    const now = new Date();
+    const dateTime = now.toLocaleString();
+
+    const entry = {
+        amount: amount,
+        dateTime: dateTime,
+        timestamp: now.getTime()
+    };
+
+    entries.push(entry);
+    sortEntries();
+    displayEntries();
+    updateTotalIntake(amount);
+}
+
+function removeWaterIntake(button, amount, timestamp) {
+    entries = entries.filter(entry => entry.timestamp !== timestamp);
+    sortEntries();
+    displayEntries();
+    updateTotalIntake(-amount);
+}
+
+function sortEntries() {
+    entries.sort((a, b) => b.timestamp - a.timestamp);
+}
+
+function displayEntries() {
+    const waterList = document.getElementById('water-list');
+    waterList.innerHTML = '';
+
+    entries.forEach(entry => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${entry.amount} ml - <small>${entry.dateTime}</small>
+            <button onclick="removeWaterIntake(this, ${entry.amount}, ${entry.timestamp})">Remove</button>
+        `;
+        waterList.appendChild(li);
+    });
+}
+
+function updateTotalIntake(amount) {
+    const totalIntakeElement = document.getElementById('total-intake');
+    const currentTotal = parseFloat(totalIntakeElement.textContent);
+    const newTotal = currentTotal + amount;
+    totalIntakeElement.textContent = newTotal.toFixed(2);
+}
+
+
+    </script>
+</body>
+</html>

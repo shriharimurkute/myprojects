@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Value Ratios</title>
+    <style>
+ body {
+   
+    background-image: url('/images/finance4k1.png');
+    background-repeat: repeat-x repeat-y;
+    height:100%;
+    width:100%;
+ }
+ /* navbar style*/
+/* style.css */
+
+.navbar-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #026218da;
+
+   /*padding: 10px;*/
+   size: 25px;
+}
+
+.home-link {
+   text-decoration: none;
+   color: #34a5f0;
+   font-weight: bold;
+}
+
+.navbar-logo {
+   /* Add your logo styling here */
+background-size: 25px;
+}
+
+.navbar-links {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+}
+
+.navbar-item {
+   margin-right: 20px;
+}
+
+.navbar-link {
+   text-decoration: none;
+   color: #f7a428;
+   font-size: 24px;
+}
+button:hover{
+    background-color:green;
+}
+
+.container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+.container2{
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+
+        }
+ .contain{
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+ .container1{
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #05712b;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .container3{
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        }
+        .container4{
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        }
+        .container5{
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        }
+
+    </style>
+</head>
+<body>
+        <nav class="navbar-container container">
+            <a href="/" class="home-link">
+                <div class="navbar-logo"><img width="100px" height="auto" src="/marathi_heritage.jpg"></div>
+                Financial<br> Management
+               <!-- <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>-->
+                <div id="navbar-menu" aria-labelledby="navbar-toggle">
+                    <ul class="navbar-links">
+                       <button style=" padding: 5px 10px; margin: 5px;  border-radius: 5px; cursor: pointer; "> <li class="navbar-item"><a class="navbar-link" href="/code_files/Trackers.html">Trackers</a></li></button>
+                        <button style=" padding: 5px 10px; margin: 5px;  border-radius: 5px; cursor: pointer; "><li class="navbar-item"><a class="navbar-link" href="/transactions.html">Transactions</a></li></button>
+                        <button style=" padding: 5px 10px; margin: 5px;  border-radius: 5px; cursor: pointer; "><li class="navbar-item"><a class="navbar-link" href="/code_files/budget_Tracker.html">Budget</a></li></button>
+                        <button style=" padding: 5px 10px; margin: 5px;  border-radius: 5px; cursor: pointer; "><li class="navbar-item"><a class="navbar-link" href="/weekly.html">Reports</a></li></button>
+                         <button style=" padding: 5px 10px; margin: 5px;  border-radius: 5px; cursor: pointer; "><li class="navbar-item"><a class="navbar-link" href="/code_files/marketShare.html">Share market</a></li></button>
+                    </ul>
+                </div>
+            </nav>
+
+    <br><br><br><br>   
+     <div class="container">
+        <h1>Market Value Ratios</h1>
+        <p>Market value ratios help investors evaluate a company's stock price and financial performance.</p>
+        <ul>
+            <li><strong>P/E Ratio (Price-to-Earnings Ratio):</strong> Compares stock price to earnings per share.</li>
+            <li><strong>P/S Ratio (Price-to-Sales Ratio):</strong> Compares stock price to revenue per share.</li>
+        </ul>
+        <p>These ratios provide insights into valuation and investment decisions.</p>
+    </div><br><br><br>
+        <!--market share ratio-->  
+        <div class="container1">
+            <h1>Market Share Ratio</h1>
+            <p>The <strong>P/E Ratio</strong> (Price-to-Earnings Ratio) compares a company's stock price to its earnings per share (EPS).</p>
+            <p>Formula for P/E Ratio:</p>
+            <pre>$$ \text{P/E Ratio} = \frac{\text{Stock Price}}{\text{Earnings per Share}} $$</pre>
+            <p>Investors use this ratio to assess valuation and make informed investment decisions.</p>
+         </div>
+</div><br><br><br>
+            <div class="container2">
+                <h1>Market Share Evaluator</h1>
+                <label for="totalSales">Total Sales (in dollars):</label>
+                <input type="number" id="totalSales" placeholder="Enter total sales">
+                <label for="companySales">Company Sales (in dollars):</label>
+                <input type="number" id="companySales" placeholder="Enter company sales">
+                <button onclick="calculateMarketShare()">Calculate Market Share</button>
+                <p id="result"></p>
+             </div>
+<br>
+<br>
+<br><!--ROI calculator-->
+<div class="contain">
+<p>
+   <b> Market Share Change Calculator:</b>
+   <ul>
+   <li>Calculates the percentage change in market share between two periods.</li>
+   <li>Users input market share in the current period and the previous period.
+</li>
+<li>The formula is: <br> Market Share Change=(Current Market Share-Previous Market Share/Privious Market Share)*100%</li>
+</ul>
+</p>
+</div>
+<br>
+<br><br>
+        <div class="container3">
+            <h1>ROI Calculator</h1>
+            <label for="initialInvestment">Initial Investment ($):</label>
+            <input type="number" id="initialInvestment">
+            <label for="finalValue">Final Value ($):</label>
+            <input type="number" id="finalValue">
+            <button onclick="calculateROI()">Calculate ROI</button>
+            <p id="roiResult"></p>
+        </div>
+</div>
+<br><br>
+<div class="container4">
+    <h1>Working Capital Calculator</h1>
+    <label for="currentAssets">Current Assets ($):</label>
+    <input type="number" id="currentAssets">
+    <label for="currentLiabilities">Current Liabilities ($):</label>
+    <input type="number" id="currentLiabilities">
+    <button onclick="calculateWorkingCapital()">Calculate</button>
+    <p id="result"></p>
+</div>
+<br>
+<br>
+<!--cash flow statements-->
+<div class="container5">
+    <h1>Cash Flow Statement Calculator</h1>
+    <label for="netIncome">Net Income ($):</label>
+    <input type="number" id="netIncome">
+    <label for="depreciation">Depreciation & Amortization ($):</label>
+    <input type="number" id="depreciation">
+    <label for="changesInWorkingCapital">Changes in Working Capital ($):</label>
+    <input type="number" id="changesInWorkingCapital">
+    <button onclick="calculateOCF()">Calculate OCF</button>
+    <p id="ocfResult"></p>
+</div>
+<br>
+<div class="stock-price-tracker">
+    <h2>Stock Price Tracker</h2>
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_12345"></div>
+      <div class="tradingview-widget-copyright">
+        <a href="https://www.tradingview.com" rel="noopener" target="_blank">
+          <span class="blue-text">Track all markets</span>
+        </a> by TradingView
+      </div>
+     <!-- <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+        {
+          "symbol": "NASDAQ:AAPL",
+          "width": "350",
+          "colorTheme": "light",
+          "isTransparent": false,
+          "locale": "en"
+        }
+        </script>-->
+         </div>
+         <!-- TradingView Widget END -->
+       </div>
+       <div class="crypto-price-tracker">
+        <h2>Cryptocurrency Price Tracker</h2>
+        <!-- CoinGecko Widget BEGIN -->
+        <div class="coingecko-coin-price-marquee-widget" data-coins="bitcoin,ethereum,ripple" data-currency="usd" data-background-color="#ffffff" data-text-color="#000000" data-ticker-style="scroll" data-font-size="16px" data-marquee-speed="20"></div>
+        <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
+        <!-- CoinGecko Widget END -->
+      </div>
+      
+<footer style="text-align: center;">
+   <b> @Financial Managment </b>
+</footer>
+       <script>
+            // Example JavaScript code (you can expand this section)
+            const stockPrice = 100; // Replace with actual stock price
+            const earningsPerShare = 5; // Replace with actual earnings per share
+            const revenuePerShare = 10; // Replace with actual revenue per share
+
+            const peRatio = stockPrice / earningsPerShare;
+            const psRatio = stockPrice / revenuePerShare;
+
+            console.log(`P/E Ratio: ${peRatio.toFixed(2)}`);
+            console.log(`P/S Ratio: ${psRatio.toFixed(2)}`);
+
+            //market share ratiio
+
+            console.log(`P/E Ratio: ${peRatio.toFixed(2)}`);
+
+            //market share evaluator
+            function calculateMarketShare() {
+                const totalSales = parseFloat(document.getElementById('totalSales').value);
+                const companySales = parseFloat(document.getElementById('companySales').value);
+
+                if (isNaN(totalSales) || isNaN(companySales)) {
+                    document.getElementById('result').textContent = 'Please enter valid sales amounts.';
+                } else {
+                    const marketShare = (companySales / totalSales) * 100;
+                    document.getElementById('result').textContent = `Market Share: ${marketShare.toFixed(2)}%`;
+                }
+            }
+            //ROI calculator
+            function calculateROI() {
+            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value);
+            const finalValue = parseFloat(document.getElementById('finalValue').value);
+
+            if (!isNaN(initialInvestment) && !isNaN(finalValue)) {
+                const roi = ((finalValue - initialInvestment) / initialInvestment) * 100;
+                document.getElementById('roiResult').textContent = `ROI: ${roi.toFixed(2)}%`;
+            } else {
+                document.getElementById('roiResult').textContent = 'Please enter valid amounts.';
+            }
+        }
+        //working capital calculator
+        function calculateWorkingCapital() {
+            const currentAssets = parseFloat(document.getElementById('currentAssets').value);
+            const currentLiabilities = parseFloat(document.getElementById('currentLiabilities').value);
+
+            if (!isNaN(currentAssets) && !isNaN(currentLiabilities)) {
+                const workingCapital = currentAssets - currentLiabilities;
+                document.getElementById('result').textContent = `Working Capital: $${workingCapital.toFixed(2)}`;
+            } else {
+                document.getElementById('result').textContent = 'Please enter valid amounts.';
+            }
+        }
+        //cash flow statements
+        function calculateOCF() {
+            const netIncome = parseFloat(document.getElementById('netIncome').value);
+            const depreciation = parseFloat(document.getElementById('depreciation').value);
+            const changesInWorkingCapital = parseFloat(document.getElementById('changesInWorkingCapital').value);
+
+            if (!isNaN(netIncome) && !isNaN(depreciation) && !isNaN(changesInWorkingCapital)) {
+                const ocf = netIncome + depreciation - changesInWorkingCapital;
+                document.getElementById('ocfResult').textContent = `Operating Cash Flow (OCF): $${ocf.toFixed(2)}`;
+            } else {
+                document.getElementById('ocfResult').textContent = 'Please enter valid amounts.';
+            }
+        }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>managments</title>
+   <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #383827;
+    color: white;
+    padding: 1rem;
+    display:flex;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+  
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+/*drpodown menu start */
+
+.dropdown{
+    text-align: left;
+    position:relative;
+    display:inline-block;
+}
+.dropbtn{
+    background-color: white;
+    border:2px solid black;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.dropd-ctx{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+.dropd-ctx a{
+    color:black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropd-ctx a:hover{
+    background: color #f1f1f1;;
+
+}
+.dropdown:hover .dropd-ctx{
+    display: block;
+
+}
+.dropdown:hover .dropbtn{
+    background-color: wheat;
+
+}
+
+/*dropdown menu end */
+.container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 50%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #555;
+    color: white;
+}
+
+td button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #0056b3;
+}
+
+.total-amount {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.print {
+    width: 50%;
+    padding: 10px;
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.print:hover {
+    background-color: #e0a800;
+}
+.controls {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.controls button, .controls input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: #218838;
+    color: white;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    color: #333;
+}
+
+.card p {
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+}
+
+   </style>
+  
+</head>
+<body>
+    <header>
+        <div class="dropdown">
+            <button class="dropbtn">=</button>
+            <div class="dropd-ctx">
+                <a href="/code_files/index.html"> Home</a>
+                <a href="/code_files/my_Activities.html"> control your Activities</a>
+                <a href="/allTrackers/taskTracker.html"> Control your Tasks</a>
+                <a href="/code_files/about.html">about</a>
+            </div>
+        </div>
+
+        <h1 style="color:#383827;">____________________</h1>
+        <nav >
+            <ul>
+                <li><a href="#bill">bills</a></li>
+                <li><a href="#cards">other information</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" id="biil">
+        <h2>Bills</h2>
+        <form id="billForm">
+            <input type="text" id="item" placeholder="Item" required>
+            <input type="number" id="amount" placeholder="Amount" required>
+            <br>
+              <button type="button" onclick="addBill()">Add Bill</button>
+        </form>
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search by item name" onkeyup="searchBills()">
+            <button onclick="sortBills()">Sort by Amount</button>
+            <input type="date" id="filterDate" onchange="filterBillsByDate()">
+            <button onclick="exportToCSV()">Export to CSV</button>
+        </div>
+        <table id="billTable" style="color:white;">
+            <thead>
+                <tr>
+                    <th style="color:white; width:200px;">Bill-Description</th>
+                    <th style="color:white;width:150px;">Amount</th>
+                    <th style="color:white; width:100px;">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="total-amount">
+            <h3>Total Amount: <span id="totalAmount">0</span></h3>
+        </div>
+        <button class="print" onclick="printBill()">Print Bill</button>
+    </div>
+
+    <br>
+    <!--Extra Content-->
+    <div class="card-container" id="cards">
+        <div class="card">
+            <h3>Budgeting Tools</h3>
+            <p>Discover our range of budgeting tools to help you manage your finances effectively.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="card">
+            <h3>Investment Advice</h3>
+            <p>Get expert advice on how to invest your money wisely and grow your wealth.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="card">
+            <h3>Financial Planning Workshops</h3>
+            <p>Join our workshops to learn about financial planning and achieve your financial goals.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="card">
+            <h3>Debt Management</h3>
+            <p>Find strategies to manage and reduce your debt effectively.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="card">
+            <h3>Retirement Planning</h3>
+            <p>Plan for a secure and comfortable retirement with our expert guidance.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const billForm = document.getElementById('billForm');
+    const billTable = document.getElementById('billTable').getElementsByTagName('tbody')[0];
+
+    billForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        addBill();
+    });
+});
+
+function addBill() {
+    const item = document.getElementById('item').value.trim();
+    const amount = parseFloat(document.getElementById('amount').value.trim());
+
+    if (item === '' || isNaN(amount)) {
+        alert('Please fill out both fields.');
+        return;
+    }
+
+    const billTable = document.getElementById('billTable').getElementsByTagName('tbody')[0];
+    const newRow = billTable.insertRow();
+
+    const itemCell = newRow.insertCell(0);
+    const amountCell = newRow.insertCell(1);
+    const editCell = newRow.insertCell(2);
+
+    itemCell.textContent = item;
+    amountCell.textContent = amount.toFixed(2);
+    editCell.innerHTML = '<button onclick="editBill(this)">Edit</button> <button onclick="deleteBill(this)">Delete</button>';
+
+    updateTotalAmount();
+    document.getElementById('billForm').reset();
+}
+
+function editBill(button) {
+    const row = button.parentNode.parentNode;
+    const item = row.cells[0].textContent;
+    const amount = row.cells[1].textContent;
+
+    document.getElementById('item').value = item;
+    document.getElementById('amount').value = amount;
+
+    deleteBill(button);
+}
+
+function deleteBill(button) {
+    const row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+    updateTotalAmount();
+}
+
+function updateTotalAmount() {
+    const billTable = document.getElementById('billTable').getElementsByTagName('tbody')[0];
+    let total = 0;
+
+    for (let i = 0; i < billTable.rows.length; i++) {
+        total += parseFloat(billTable.rows[i].cells[1].textContent);
+    }
+
+    document.getElementById('totalAmount').textContent = total.toFixed(2);
+}
+
+function sortBills() {
+    const billTable = document.getElementById('billTable').getElementsByTagName('tbody')[0];
+    const rows = Array.from(billTable.rows);
+
+    rows.sort((a, b) => parseFloat(a.cells[1].textContent) - parseFloat(b.cells[1].textContent));
+
+    rows.forEach(row => billTable.appendChild(row));
+}
+
+function filterBillsByDate() {
+    const filterDate = document.getElementById('filterDate').value;
+    const billTable = document.getElementById('billTable').getElementsByTagName('tbody')[0];
+    const rows = Array.from(billTable.rows);
+
+    rows.forEach(row => {
+        const date = row.cells[2].textContent;
+        row.style.display = date === filterDate ? '' : 'none';
+    });
+}
+
+function exportToCSV() {
+    const billTable = document.getElementById('billTable');
+    const rows = Array.from(billTable.rows);
+    let csvContent = '';
+
+    rows.forEach(row => {
+        const cells = Array.from(row.cells);
+        const rowContent = cells.map(cell => cell.textContent).join(',');
+        csvContent += rowContent + '\n';
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'bills.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function printBill() {
+    const printContents = document.querySelector('.container').innerHTML;
+    const originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
+function searchBills() {
+    const input = document.getElementById('searchInput').value.toUpperCase();
+    const billTable = document.getElementById('billTable').getElementsByTagName('tbody')[0];
+    const rows = Array.from(billTable.rows);
+
+    rows.forEach(row => {
+        const item = row.cells[0].textContent.toUpperCase();
+        row.style.display = item.indexOf(input) > -1 ? '' : 'none';
+    });
+}
+</script>
+
+</body>
+</html>
