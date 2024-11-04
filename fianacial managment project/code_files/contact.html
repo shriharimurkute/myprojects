@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+   <style>
+body {
+    font-family: Arial, sans-serif;
+    background-image: radial-gradient(#ff8a00, #e52e71);
+
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-image: linear-gradient(to right, #d3a10b, #f3ae73);
+    color: white;
+    padding: 1rem;
+    display:flex;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+  
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+/*drpodown menu start */
+
+.dropdown{
+    text-align: left;
+    position:relative;
+    display:inline-block;
+}
+.dropbtn{
+    background-color: white;
+    border:2px solid black;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.dropd-ctx{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+.dropd-ctx a{
+    color:black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropd-ctx a:hover{
+    background: color #f1f1f1;;
+
+}
+.dropdown:hover .dropd-ctx{
+    display: block;
+
+}
+.dropdown:hover .dropbtn{
+    background-color: wheat;
+
+}
+
+/*dropdown menu end */
+.contact-container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
+}
+contact-info, .map-container {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.map-container iframe {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+.faq-item {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter input {
+    width: 80%;
+    margin-bottom: 10px;
+}
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.footer .social-media a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+   </style>
+</head>
+<body>
+    <header>
+        <div class="dropdown">
+            <button class="dropbtn">=</button>
+            <div class="dropd-ctx">
+                <a href="/code_files/homefi.html"> Home</a>
+                <a href="/code_files/my_Activities.html"> control your Activities</a>
+                <a href="/allTrackers/taskTracker.html"> Control your Tasks</a>
+                <a href="/code_files/about.html">about</a>
+            </div>
+        </div>
+
+        <h1 style="color:transparent;">__________________________</h1>
+        <nav >
+            <ul>
+                <li><a href="#con">contact us</a></li>
+                <li><a href="#con_info">Adress</a></li>
+                <li><a href="#map">Map</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contact-container" id="con">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="formMessage"></div>
+    </div>
+
+    <div class="contact-info" id="con_info">
+        <h2>Our Office</h2>
+        <p>123 Financial Street, Mumbai, Maharashtra, India</p>
+        <p>Email: contact@financemgmt.com</p>
+        <p>Phone: +91 12345 67890</p>
+    </div>
+
+    <div class="map-container" id="map">
+        <h2>Find Us Here</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.123456789!2d72.123456789!3d19.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1234567890!2sFinancial%20Street!5e0!3m2!1sen!2sin!4v1234567890" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+   <!--<div class="social-media">
+        <h2>Follow Us</h2>
+        <a href="#" class="fa fa-facebook"> <img src='/images/facebook_logo.png' height="50" width="50"></a>
+        <a href="#" class="fa fa-twitter"><img src='/images/twitter logo.png' height="50" width="50"></a>
+        <a href="#" class="fa fa-linkedin"><img src='/images/linkdin.jpg' height="50" width="50"></a>
+        <a href="#" class="fa fa-instagram"><img src='/images/instagram_logo.jpg' height="50" width="50"></a>
+    </div>-->
+
+    <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>What services do you offer?</h3>
+            <p>We offer a range of financial management and education services, including budgeting tools, investment advice, and financial planning workshops.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How can I schedule a consultation?</h3>
+            <p>You can schedule a consultation by filling out the contact form above or by calling us at +91 12345 67890.</p>
+        </div>
+    </div>
+
+    <div class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form id="newsletterForm">
+            <label for="newsletterEmail">Email:</label>
+            <input type="email" id="newsletterEmail" name="newsletterEmail" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 Financial Managment & Education . All rights reserved.</p>
+        <div class="social-media">
+            <a href="www.facebook.com"><img height="40" width="40" src="/images/facebook_logo.png"/></a>
+            <a href="www.twitter.com"><img height="40" width="40" src="/images/twitter logo.png"/></a>
+            <a href="www.linkedin.com"><img height="40" width="40" src="/images/linkdin.jpg"/></a>
+        </div>
+    </footer>
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    const newsletterForm = document.getElementById('newsletterForm');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+
+        if (name === '' || email === '' || message === '') {
+            formMessage.textContent = 'Please fill out all fields.';
+            formMessage.style.color = 'red';
+        } else {
+            formMessage.textContent = 'Thank you for your message!';
+            formMessage.style.color = 'green';
+            form.reset();
+        }
+    });
+
+    newsletterForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const email = newsletterForm.newsletterEmail.value.trim();
+
+        if (email === '') {
+            alert('Please enter your email.');
+        } else {
+            alert('Thank you for subscribing!');
+            newsletterForm.reset();
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

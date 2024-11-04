@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qizes</title>
+    <style>
+      
+        .quiz{
+            width:600px;
+            border:2px solid black;
+            align-content: left;
+        }
+    </style>
+</head>
+<body>
+     <!--<center>
+        <section class="quiz">
+            <h2>Financial Literacy Quiz</h2>
+            <div class="question">
+                <p>What is the best way to improve your credit score?</p>
+                <button onclick="checkAnswer('a')">A. Pay bills on time</button>
+                <button onclick="checkAnswer('b')">B. Open new credit accounts</button>
+                <button onclick="checkAnswer('c')">C. Max out your credit cards</button>
+                <p id="quizResult"></p>
+            </div>
+        </section>
+        </center>-->
+        <center> 
+            <section class="quiz">
+                <h2>Saving Strategies Quiz</h2>
+                <div class="question">
+                    <p>Which of the following is a good saving strategy?</p>
+                    <button onclick="checkAnswer('a', 2)">A. Spend first, save what's left</button>
+                    <button onclick="checkAnswer('b', 2)">B. Save a fixed percentage of your income</button>
+                    <button onclick="checkAnswer('c', 2)">C. Only save when you have extra money</button>
+                    <p id="quizResult2"></p>
+                </div>
+            </section>
+            
+        </center>
+        <center>
+            <section class="quiz">
+                <h2>Investment Knowledge Quiz</h2>
+                <div class="question">
+                    <p>What is diversification in investing?</p>
+                    <button onclick="checkAnswer('a', 3)">A. Investing all your money in one stock</button>
+                    <button onclick="checkAnswer('b', 3)">B. Spreading your investments across different assets</button>
+                    <button onclick="checkAnswer('c', 3)">C. Keeping all your money in a savings account</button>
+                    <p id="quizResult3"></p>
+                </div>
+            </section>
+            
+        </center>
+
+        <center>
+            <section class="quiz">
+                <h2>Budgeting Basics Quiz</h2>
+                <div class="question">
+                    <p>What is the first step in creating a budget?</p>
+                    <button onclick="checkAnswer('a', 1)">A. Track your income and expenses</button>
+                    <button onclick="checkAnswer('b', 1)">B. Cut all unnecessary expenses</button>
+                    <button onclick="checkAnswer('c', 1)">C. Save a fixed amount each month</button>
+                    <p id="quizResult1"></p>
+                </div>
+            </section>
+            </center>
+            <center>
+            <section class="quiz">
+                <h2>Retirement Planning Quiz</h2>
+                <div class="question">
+                    <p>When should you start saving for retirement?</p>
+                    <button onclick="checkAnswer('a', 5)">A. As soon as you start earning</button>
+                    <button onclick="checkAnswer('b', 5)">B. When you are in your 40s</button>
+                    <button onclick="checkAnswer('c', 5)">C. Only when you are close to retirement</button>
+                    <p id="quizResult5"></p>
+                </div>
+            </section>
+            </center>
+        <center>
+        
+        <section class="quiz">
+            <h2>Debt Management Quiz</h2>
+            <div class="question">
+                <p>What is a good strategy for managing debt?</p>
+                <button onclick="checkAnswer('a', 4)">A. Ignore it and hope it goes away</button>
+                <button onclick="checkAnswer('b', 4)">B. Pay off high-interest debt first</button>
+                <button onclick="checkAnswer('c', 4)">C. Take on more debt to pay off existing debt</button>
+                <p id="quizResult4"></p>
+            </div>
+        </section>
+        </center>
+        
+        <center>
+        
+        <section class="quiz">
+            <h2>Credit Card Knowledge Quiz</h2>
+            <div class="question">
+                <p>What is the best way to use a credit card?</p>
+                <button onclick="checkAnswer('a', 6)">A. Max out the credit limit</button>
+                <button onclick="checkAnswer('b', 6)">B. Pay the full balance each month</button>
+                <button onclick="checkAnswer('c', 6)">C. Make only the minimum payment</button>
+                <p id="quizResult6"></p>
+            </div>
+        </section>
+        </center>
+        
+
+
+        <script>
+
+function checkAnswer(answer) {
+    const result = answer === 'a' ? 'Correct!' : 'Try again!';
+    document.getElementById('quizResult').innerText = result;
+}
+function checkAnswer(answer, quizNumber) {
+    let resultElement = document.getElementById(`quizResult${quizNumber}`);
+    let correctAnswers = {
+        1: 'a', // Budgeting Basics Quiz
+        2: 'b', // Saving Strategies Quiz
+        3: 'b'  // Investment Knowledge Quiz
+    };
+
+    if (answer === correctAnswers[quizNumber]) {
+        resultElement.textContent = "Correct!";
+        resultElement.style.color = "green";
+    } else {
+        resultElement.textContent = "Incorrect. Try again!";
+        resultElement.style.color = "red";
+    }
+}
+function checkAnswer(answer, quizNumber) {
+    let resultElement = document.getElementById(`quizResult${quizNumber}`);
+    let correctAnswers = {
+        1: 'a', // Budgeting Basics Quiz
+        2: 'b', // Saving Strategies Quiz
+        3: 'b', // Investment Knowledge Quiz
+        4: 'b', // Debt Management Quiz
+        5: 'a', // Retirement Planning Quiz
+        6: 'b'  // Credit Card Knowledge Quiz
+    };
+
+    if (answer === correctAnswers[quizNumber]) {
+        resultElement.textContent = "Correct!";
+        resultElement.style.color = "green";
+    } else {
+        resultElement.textContent = "Incorrect. Try again!";
+        resultElement.style.color = "red";
+    }
+}
+
+
+
+</script>
+</body>
+</html>

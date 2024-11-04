@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity and financial data</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+/*dropdown*/
+.dropdown{
+    position:relative;
+    display:inline-block;
+}
+.dropbtn{
+    background-color: white;
+    border:2px solid black;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.dropd-ctx{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+.dropd-ctx a{
+    color:black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropd-ctx a:hover{
+    background: color #f1f1f1;;
+
+}
+.dropdown:hover .dropd-ctx{
+    display: block;
+
+}
+.dropdown:hover .dropbtn{
+    background-color: wheat;
+
+}
+/*end dropdown menu */
+.activity-tracker {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.time {
+    font-size: 0.9em;
+    color: #555;
+}
+.user-input{
+    padding:10px;
+    height:0 auto;
+    max-width: 800px;
+    border:2px solid gray;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+}
+
+.feature {
+    text-align: center;
+    max-width: 300px;
+}
+
+.feature h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #666;
+}
+    </style>
+</head>
+<body>
+    <div id="drop" class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropd-ctx">
+            <a href="/code_files/index.html"> Home</a>
+            <a href="/code_files/my_Activities.html">Activities</a>
+            <a href="/code_files/transactions_managment.html"> Transactions</a>
+            <a href="/allTrackers/Trackers.html"> Trackers</a>
+        </div>
+    </div>
+
+    <div class="activity-tracker">
+        <h1>Activities</h1>
+        <form id="activity-form">
+            <input type="text" id="activity" placeholder="Enter activity" required />
+            <button type="submit">Add Activity</button>
+        </form>
+        <ul id="activity-list"></ul>
+        
+    </div>
+   
+<br>
+<!-- User Input Form -->
+ <center>
+<div class="user-input">
+    <h2>Enter Your Financial Data</h2>
+    <form id="financial-form">
+        <input type="text" id="income" placeholder="Income" required />
+        <input type="text" id="expense" placeholder="Expense" required />
+        <input type="date" id="date" placeholder="date" required />
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+    <div id="output"></div>
+</div>
+</center>
+<main>
+<section class="features">
+    <div class="feature">
+        <h2>Interactive Courses</h2>
+        <p>Engage with our interactive financial courses.</p>
+    </div>
+    <div class="feature">
+        <h2>Personalized Advice</h2>
+        <p>Get advice tailored to your financial goals.</p>
+    </div>
+    <div class="feature">
+        <h2>Community Support</h2>
+        <p>Join a community of like-minded learners.</p>
+    </div>
+</section>
+
+</main>
+    <script>
+
+        
+document.getElementById('activity-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get the input value
+    const activity = document.getElementById('activity').value;
+
+    // Create a new list item
+    const li = document.createElement('li');
+    li.textContent = activity;
+
+    // Add the list item to the activity list
+    document.getElementById('activity-list').appendChild(li);
+
+    // Clear the input field
+    document.getElementById('activity').value = '';
+});
+    //Process the user input (e.g., calculate net profit/loss, update display, etc.)
+    // You can use the existing logic or add new functionality here
+    const entries = [];
+
+    document.getElementById('financial-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const income = document.getElementById('income').value;
+        const expense = document.getElementById('expense').value;
+        const datetime = document.getElementById('date').value;
+        
+        const entry = { income, expense, datetime };
+        entries.push(entry);
+        
+        displayEntries();
+    });
+
+    function displayEntries() {
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = '';
+        entries.forEach((entry, index) => {
+            outputDiv.innerHTML += `<p> ${index + 1}: Income: ${entry.income}, Expense: ${entry.expense}, Date: ${entry.datetime}</p>`;
+        });
+    }
+
+document.getElementById('activity-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get the input value
+    const activity = document.getElementById('activity').value;
+
+    // Get the current date and time
+    const now = new Date();
+    const dateTime = now.toLocaleString();
+
+    // Create a new list item
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${activity}</strong><br><span class="time">${dateTime}</span>`;
+
+    // Add the list item to the activity list
+    document.getElementById('activity-list').appendChild(li);
+
+    // Clear the input field
+    document.getElementById('activity').value = '';
+});
+
+    </script>
+    
+</body>
+</html>

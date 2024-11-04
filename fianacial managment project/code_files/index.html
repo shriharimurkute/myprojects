@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Education & Management</title>
+<style>
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+
+}
+
+/* Header Styles */
+.header {
+    background:linear-gradient(to right,#c09de1,#6495ed,#4682b4,#93c1ee);
+    padding: 10px 10px; 
+    text-align: right;
+}
+.header .logo {
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-items a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.nav-items a:hover {
+   /* background-image: linear-gradient(to right,#71aae3, #4682b4, #4682b4,#c09de1); */
+    font-size:15px;
+    text-transform: uppercase;
+
+}
+/* Main Section Styles */
+.intro {
+    background:linear-gradient(to right,#ffc107,#ffa07a,#ff69b4);
+    background-size: cover;
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.intro h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.2em;
+}
+
+.intro button {
+    background-color: white;
+    color: #4CAF50;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.intro button:hover {
+    background-color: #f4f4f9;
+    transform: scale(1.05);
+}
+.hidden {
+    display: none;
+}
+
+#learnMoreContent {
+    margin-top: 20px;
+    background-color: #f4f4f9;
+    color:black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background-color: #f4f4f9;
+}
+
+.feature {
+    text-align: center;
+    width: 45%;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.feature h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.feature img {
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.feature img:hover {
+    transform: scale(1.1);
+}
+
+/* Charts Section */
+.charts {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    animation: slideIn 1s ease-in-out;
+}
+
+.charts img {
+    border-radius: 10px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer .social-media a {
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.footer .social-media img {
+    width: 40px;
+    height: 40px;
+}
+
+.footer .social-media a:hover img {
+    transform: scale(1.2);
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><!--<img src="/images/finance2.png" alt="logo" width="90" height="90">--></a>
+        <br>
+        <nav class="nav-items">
+            <a href="/financialeducation/fin_edu.html">FinEdu</a>
+            <a href="/allTrackers/Trackers.html">Trackers</a>
+            <a href="/code_files/my_Activities.html">Activities</a>
+            <a href="/code_files/about.html">About</a>
+            <a href="/code_files/services.html">Services</a>
+            <a href="/code_files/contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h1>Fin With Purpose</h1>
+            <p class="content">Simplifying Finance Amplifying Prosperity.</p>
+            <button id="learnMoreButton">Learn More</button>
+             <div id="learnMoreContent" class="hidden"></div>
+        </section>
+        <section class="features">
+            <div class="feature">
+                <h2>Personalized Advice</h2>
+                <p>  <img src="/images/personlized.jpg" width="50%" height="50%"></p>
+            </div>
+            <div class="feature">
+                <h2>Community Support</h2>
+                <p><img src="/images/community.jpg" width="50%" height="50%"></p>
+            </div>
+        </section>
+    </main>
+    <div class="charts">
+        <img src="/images/idsa_graph.jpg"height="40%" width="40%"/>
+        <h4> Indian Army Budget 2014-2024</h4>
+    </div>
+    <footer class="footer">
+        <p>© 2024 Financial Managment & Education . All rights reserved.</p>
+        <div class="social-media">
+            <a href="www.facebook.com"><img height="40" width="40" src="/images/facebook_logo.png"/></a>
+            <a href="www.twitter.com"><img height="40" width="40" src="/images/twitter logo.png"/></a>
+            <a href="www.linkedin.com"><img height="40" width="40" src="/images/linkdin.jpg"/></a>
+        </div>
+    </footer>
+    <br>
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    const learnMoreButton = document.getElementById("learnMoreButton");
+    const learnMoreContent = document.getElementById("learnMoreContent");
+
+    learnMoreButton.addEventListener("click", function() {
+        const content = `
+            <p>Welcome to Fin, your go-to platform for financial management and education. Here, we provide personalized advice, community support, and a variety of tools to help you achieve financial prosperity.</p>
+            
+        `;
+        learnMoreContent.innerHTML = content;
+        learnMoreContent.classList.remove("hidden");
+    });
+});
+    </script>
+</body>
+</html>

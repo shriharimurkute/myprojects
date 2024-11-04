@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Education</title>
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    display: block;
+    align-items: center;
+}
+
+section img {
+    width: 50px;
+    margin-right: 1rem;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.more-info {
+    display: none;
+    margin-top: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+.container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Financial Education</h1>
+        <nav>
+            <ul>
+                <li><a href="#budgeting">Budgeting</a></li>
+                <li><a href="#investing">Investing</a></li>
+                <li><a href="#saving">Saving</a></li>
+                <li><a href="#credit">Credit</a></li>
+                <li><a href="#retirement">Retirement</a></li>
+                <li><a href="#accounting">Accounting</a></li>
+                <li><a href="#finance">Finance</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="accounting">
+            <h2>What is Accounting?</h2>
+            <p> Accounting is the process of recording, summarizing, and reporting financial transactions to oversight agencies, regulators, and the IRS. The financial statements used in accounting are a concise summary of financial transactions over an accounting period, summarizing a company's operations, financial position, and cash flows.</p>
+        </section>
+        <section id="finance">
+            <h2>What is Finance?</h2>
+            <p>Finance is the study and management of money, investments, and other financial instruments. It includes the dynamics of assets and liabilities over time under conditions of different degrees of uncertainty and risk. Finance can be divided into three sub-categories: public finance, corporate finance, and personal finance.</p>
+        </section>
+        <section id="budgeting">
+            <h2>Budgeting</h2>
+            <p>Learn how to create and manage a budget to keep your finances in check.</p><br>
+            <button onclick="showMore('budgeting')">Learn More</button><br>
+            <div class="more-info" id="more-budgeting">
+                <p>Budgeting helps you track your income and expenses, ensuring you live within your means.</p>
+            </div>
+        </section>
+        <section id="investing">
+            <h2>Investing </h2>
+            <p> Understand the basics of investing and how to grow your wealth over time.</p><br>
+            <button onclick="showMore('investing')">Learn More</button><br>
+            <div class="more-info" id="more-investing">
+                <p>Investing involves putting your money into assets like stocks, bonds, or real estate to earn returns.</p>
+            </div>
+        </section>
+        <section id="saving">
+            <h2>Saving </h2>
+            <p> Discover effective saving strategies to build a secure financial future.</p><br>
+            <button onclick="showMore('saving')">Learn More</button><br>
+            <div class="more-info" id="more-saving">
+                <p> Saving money regularly helps you prepare for emergencies and achieve financial goals.</p>
+            </div>
+        </section>
+        <section id="credit">
+            <h2>Credit <br></h2>
+            <img src="/images/credit_s.jpg" alt="Credit Icon">
+            <p> Learn about credit scores, reports, and how to maintain good credit.</p><br>
+            <button onclick="showMore('credit')">Learn More</button><br>
+            <div class="more-info" id="more-credit">
+                <p> <br>Good credit is essential for securing loans and getting favorable interest rates.</p>
+            </div>
+        </section>
+        <section id="retirement">
+            <h2> Retirement <br></h2>
+            <img src="/images/retirment_plan.jpg" alt="Retirement Icon">
+            <p> Plan for your retirement to ensure a comfortable and secure future.</p><br>
+            <button onclick="showMore('retirement')">Learn More</button><br>
+            <div class="more-info" id="more-retirement">
+                <p > <br>Retirement planning involves saving and investing to provide income during your retirement years.</p>
+            </div>
+        </section>
+        </main>
+        <div class="container">
+            <h1>Understanding Budgeting</h1>
+            <div class="info">
+                <h2>What Is a Budget?</h2>
+                <p>A budget is a detailed plan that outlines the financial consequences of an organization’s operating activities for a specific future period.</p>
+                <p>It acts as a financial model, summarizing projected income, expenses, and financial goals.</p>
+            </div>
+            <div class="info">
+                <h2>Why Is Budgeting Important?</h2>
+                <p><strong>Control:</strong> A budget allows you to allocate resources effectively and control costs.</p>
+                <p><strong>Planning:</strong> It helps you set financial goals and prioritize spending.</p>
+                <p><strong>Financial Freedom:</strong> Budgeting provides clarity and reduces stress.</p>
+            </div>
+            <div class="info">
+                <h2>Steps in the Budgeting Process:</h2>
+                <ol>
+                    <li>Figure out your after-tax income:
+                        <ul>
+                            <li>Calculate your true income by considering deductions (e.g., 401(k), health insurance).</li>
+                        </ul>
+                    </li>
+                    <li>Choose a budgeting system:
+                        <ul>
+                            <li>Examples include the envelope system, zero-based budget, and the 50/30/20 budget.</li>
+                        </ul>
+                    </li>
+                    <li>Track your progress:
+                        <ul>
+                            <li>Record your spending or use online budgeting tools.</li>
+                        </ul>
+                    </li>
+                    <li>Automate your savings:
+                        <ul>
+                            <li>Set up automatic transfers to savings, emergency funds, and retirement accounts.</li>
+                        </ul>
+                    </li>
+                    <li>Practice budget management:
+                        <ul>
+                            <li>Regularly revisit and adjust your budget based on changing circumstances.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Understanding Investing
+            </h1>
+            <div class="info">
+                <h2>What Is Investing?</h2>
+                <p>Investing involves using capital (money) to acquire assets with the expectation of generating returns over time.</p>
+                <p>Returns can come in the form of income payments (e.g., dividends, interest) or capital gains (increase in asset value).</p>
+            </div>
+        <div class="info">
+            <p>At its core, investing is the process of putting your money to work 
+                with the goal of generating positive returns over time. 
+                These returns can come in the form of income payments (like dividends) or capital gains (when the value of your investment increases).
+                 Essentially, you're allocating resources—usually capital (i.e., money)—with the 
+                expectation of growing your wealth.</p>
+        </div>
+        <div class="info">
+            <h2>Steps in the Investing Process:</h2>
+            <ol>
+                <li><strong>Setting Financial Goals:</strong> Define clear financial objectives. What do you want to achieve with your investments?</li>
+                <li><strong>Assessing Risk Tolerance:</strong> Understand your comfort level with risk. Are you conservative or willing to take more chances?</li>
+                <li><strong>Creating a Budget and Emergency Fund:</strong> Establish a budget to allocate funds for investments. Also, build an emergency fund for unexpected expenses.</li>
+                <li><strong>Diversifying Investment Portfolio:</strong> Spread your investments across different asset classes (stocks, bonds, real estate, etc.) to reduce risk.</li>
+                <li><strong>Conducting Research and Analysis:</strong> Investigate investment options thoroughly. Consider historical performance, market trends, and expert opinions.</li>
+                <li><strong>Making Informed Investment Decisions:</strong> Based on research, choose specific investments that align with your goals and risk tolerance.</li>
+                <li><strong>Regularly Reviewing and Rebalancing:</strong> Monitor your portfolio periodically. Adjust as needed to maintain the desired asset allocation.</li>
+            </ol>
+        </div>
+    </div>
+<footer>shree</footer>
+    <script>
+function showMore(section) {
+    const moreInfo = document.getElementById(`more-${section}`);
+    if (moreInfo.style.display === "none" || moreInfo.style.display === "") {
+        moreInfo.style.display = "block";
+    } else {
+        moreInfo.style.display = "none";
+    }
+}
+    </script>
+</body>
+</html>
